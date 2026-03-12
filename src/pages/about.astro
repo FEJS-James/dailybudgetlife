@@ -1,24 +1,152 @@
 ---
-import Layout from '../layouts/BlogPost.astro';
+import BaseHead from '../components/BaseHead.astro';
+import { SITE_TITLE } from '../consts';
+
+const jsonLd = {
+	"@context": "https://schema.org",
+	"@type": "AboutPage",
+	"name": `About — ${SITE_TITLE}`,
+	"description": "Practical money advice without the jargon.",
+	"url": new URL("/about", Astro.site),
+	"publisher": { "@type": "Organization", "name": SITE_TITLE }
+};
 ---
 
-<Layout
-	title="About Daily Budget Life"
-	description="Practical money advice without the jargon."
-	pubDate={new Date('March 12 2026')}
->
-	<h2>What is Daily Budget Life?</h2>
-	<p>Daily Budget Life is a personal finance blog for people who want straightforward money advice. No financial jargon. No get-rich-quick schemes. Just practical, actionable tips for budgeting, saving, and building wealth over time.</p>
-	
-	<h2>What We Write About</h2>
-	<ul>
-		<li><strong>Budgeting</strong> — Simple systems that actually work in real life.</li>
-		<li><strong>Saving Money</strong> — Practical ways to spend less without feeling deprived.</li>
-		<li><strong>Apps & Tools</strong> — Honest reviews of budgeting and finance apps.</li>
-		<li><strong>Investing Basics</strong> — Getting started without needing a finance degree.</li>
-		<li><strong>Side Hustles</strong> — Realistic ways to earn extra income.</li>
-	</ul>
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+	<head>
+		<BaseHead title={`About — ${SITE_TITLE}`} description="Practical money advice without the jargon. Learn about our mission and what we write about." />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;0,9..40,900;1,9..40,400;1,9..40,500&display=swap" rel="stylesheet">
+		<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+		<style>body { font-family: 'DM Sans', system-ui, sans-serif; }</style>
+	</head>
+	<body class="bg-stone-50 text-gray-900 antialiased">
 
-	<h2>Our Philosophy</h2>
-	<p>Money advice should be free and accessible. We don't sell courses. We don't push expensive financial products. We write what we'd tell a friend who asked for help with their finances.</p>
-</Layout>
+		<!-- Nav -->
+		<nav class="sticky top-0 z-50 bg-stone-50/80 backdrop-blur-xl border-b border-stone-200/60">
+			<div class="max-w-6xl mx-auto px-6 lg:px-8 py-4 flex items-center justify-between">
+				<a href="/" class="text-2xl font-black tracking-tight">
+					<span class="text-gray-900">Daily</span><span class="text-emerald-600">Budget</span><span class="text-gray-900">Life</span>
+				</a>
+				<div class="flex items-center gap-6 text-sm font-medium text-stone-500">
+					<a href="/" class="hover:text-emerald-600 transition-colors duration-200">Home</a>
+					<a href="/blog" class="hover:text-emerald-600 transition-colors duration-200">Articles</a>
+					<a href="/about" class="text-emerald-600 font-semibold">About</a>
+				</div>
+			</div>
+		</nav>
+
+		<main>
+			<!-- Header -->
+			<section class="relative overflow-hidden bg-gradient-to-br from-stone-100 via-stone-50 to-emerald-50/30">
+				<div class="absolute top-0 right-0 w-72 h-72 bg-emerald-200/15 rounded-full blur-3xl"></div>
+				<div class="max-w-6xl mx-auto px-6 lg:px-8 py-16 md:py-20">
+					<span class="text-emerald-600 font-bold text-sm uppercase tracking-wider mb-3 block">About Us</span>
+					<h1 class="text-3xl md:text-5xl font-black tracking-tight mb-4">Money advice that<br><span class="text-emerald-600">actually makes sense</span></h1>
+					<p class="text-stone-500 text-lg max-w-xl leading-relaxed">No jargon. No get-rich-quick schemes. Just practical, actionable tips for your financial life.</p>
+				</div>
+			</section>
+
+			<!-- Content -->
+			<section class="max-w-3xl mx-auto px-6 lg:px-8 py-16 md:py-20">
+				<!-- What is DBL -->
+				<div class="mb-16">
+					<div class="flex items-center gap-3 mb-6">
+						<div class="w-10 h-10 bg-emerald-100 rounded-xl flex items-center justify-center">
+							<svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+						</div>
+						<h2 class="text-2xl font-bold">What is Daily Budget Life?</h2>
+					</div>
+					<p class="text-stone-600 leading-relaxed text-lg">
+						Daily Budget Life is a personal finance blog for people who want straightforward money advice. No financial jargon. No get-rich-quick schemes. Just practical, actionable tips for budgeting, saving, and building wealth over time.
+					</p>
+				</div>
+
+				<!-- What we write about -->
+				<div class="mb-16">
+					<div class="flex items-center gap-3 mb-6">
+						<div class="w-10 h-10 bg-emerald-100 rounded-xl flex items-center justify-center">
+							<svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+						</div>
+						<h2 class="text-2xl font-bold">What We Write About</h2>
+					</div>
+					<div class="grid sm:grid-cols-2 gap-4">
+						{[
+							{ title: 'Budgeting', desc: 'Simple systems that actually work in real life.', emoji: '📊' },
+							{ title: 'Saving Money', desc: 'Practical ways to spend less without feeling deprived.', emoji: '🐷' },
+							{ title: 'Apps & Tools', desc: 'Honest reviews of budgeting and finance apps.', emoji: '📱' },
+							{ title: 'Investing Basics', desc: 'Getting started without needing a finance degree.', emoji: '📈' },
+							{ title: 'Side Hustles', desc: 'Realistic ways to earn extra income.', emoji: '💼' },
+							{ title: 'Money Mindset', desc: 'Building habits that lead to lasting wealth.', emoji: '🧠' },
+						].map(item => (
+							<div class="bg-white rounded-xl border border-stone-200/80 p-5 hover:border-emerald-200 hover:shadow-md transition-all duration-300">
+								<span class="text-2xl mb-3 block">{item.emoji}</span>
+								<h3 class="font-bold text-gray-900 mb-1">{item.title}</h3>
+								<p class="text-sm text-stone-500 leading-relaxed">{item.desc}</p>
+							</div>
+						))}
+					</div>
+				</div>
+
+				<!-- Philosophy -->
+				<div class="mb-16">
+					<div class="flex items-center gap-3 mb-6">
+						<div class="w-10 h-10 bg-emerald-100 rounded-xl flex items-center justify-center">
+							<svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+						</div>
+						<h2 class="text-2xl font-bold">Our Philosophy</h2>
+					</div>
+					<div class="bg-gradient-to-br from-emerald-50 to-teal-50/50 rounded-2xl p-8 border border-emerald-100">
+						<p class="text-stone-700 leading-relaxed text-lg italic">
+							"Money advice should be free and accessible. We don't sell courses. We don't push expensive financial products. We write what we'd tell a friend who asked for help with their finances."
+						</p>
+					</div>
+				</div>
+
+				<!-- CTA -->
+				<div class="text-center bg-white rounded-2xl border border-stone-200/80 p-10 md:p-12">
+					<h2 class="text-2xl font-bold mb-3">Ready to take control?</h2>
+					<p class="text-stone-500 mb-8 max-w-md mx-auto leading-relaxed">Start with our most popular article — the 50/30/20 rule that thousands of readers swear by.</p>
+					<a href="/blog" class="inline-flex items-center gap-2 bg-emerald-600 text-white font-semibold px-7 py-3.5 rounded-full hover:bg-emerald-700 transition-all duration-200 hover:shadow-xl hover:shadow-emerald-600/20 hover:-translate-y-0.5">
+						Start Reading
+						<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+					</a>
+				</div>
+			</section>
+		</main>
+
+		<!-- Footer -->
+		<footer class="bg-stone-900 text-stone-400">
+			<div class="max-w-6xl mx-auto px-6 lg:px-8 py-16">
+				<div class="grid md:grid-cols-3 gap-10 mb-12">
+					<div>
+						<a href="/" class="text-2xl font-black text-white mb-4 block">Daily<span class="text-emerald-400">Budget</span>Life</a>
+						<p class="text-stone-500 text-sm leading-relaxed">Practical money tips for real life.</p>
+					</div>
+					<div>
+						<h4 class="font-bold text-stone-300 mb-4 text-sm uppercase tracking-wider">Navigate</h4>
+						<div class="flex flex-col gap-2.5">
+							<a href="/" class="text-sm hover:text-emerald-400 transition-colors">Home</a>
+							<a href="/blog" class="text-sm hover:text-emerald-400 transition-colors">Articles</a>
+							<a href="/about" class="text-sm hover:text-emerald-400 transition-colors">About</a>
+						</div>
+					</div>
+					<div>
+						<h4 class="font-bold text-stone-300 mb-4 text-sm uppercase tracking-wider">Popular Topics</h4>
+						<div class="flex flex-wrap gap-2">
+							{['Budgeting', 'Saving', 'Apps', 'Investing'].map(t => (
+								<span class="text-xs bg-stone-800 text-stone-400 px-3 py-1.5 rounded-full">{t}</span>
+							))}
+						</div>
+					</div>
+				</div>
+				<div class="border-t border-stone-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+					<p class="text-xs text-stone-600">© 2026 DailyBudgetLife. All rights reserved.</p>
+					<p class="text-xs text-stone-600">Built with care for your financial future.</p>
+				</div>
+			</div>
+		</footer>
+	</body>
+</html>
