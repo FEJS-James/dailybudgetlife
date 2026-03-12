@@ -1,6 +1,6 @@
 ---
 title: 'Best Budgeting Apps in 2026: 7 Apps That Actually Help You Save Money'
-description: 'We tested the most popular budgeting apps so you don't have to. Here are the 7 best options for tracking spending, saving money, and hitting your financial goals in 2026.'
+description: "We tested the most popular budgeting apps so you don't have to. Here are the 7 best options for tracking spending, saving money, and hitting your financial goals in 2026."
 pubDate: 'Mar 14 2026'
 heroImage: ''
 tags: ['budgeting apps', 'money management', 'reviews']
