@@ -41,6 +41,30 @@ const jsonLd = {
 	</head>
 	<body class="bg-stone-50 text-gray-900 antialiased">
 
+		<!-- Reading Progress Bar -->
+		<div id="reading-progress" style="position:fixed;top:0;left:0;height:3px;background:linear-gradient(to right,#059669,#d97706);z-index:9999;width:0;transition:width 0.15s ease-out;"></div>
+		<script>
+		window.addEventListener("scroll", () => {
+			const h = document.documentElement;
+			const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+			document.getElementById("reading-progress").style.width = Math.min(pct, 100) + "%";
+		});
+		</script>
+
+		<style>
+		/* Budget table styling */
+		article table { border-collapse: collapse; width: 100%; margin: 1.5rem 0; border-radius: 8px; overflow: hidden; }
+		article table th { text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.05em; font-weight: 700; color: #1c1917; background: #fef3c7; border-bottom: 2px solid #d97706; padding: 0.75rem 1rem; text-align: left; }
+		article table td { padding: 0.75rem 1rem; border-bottom: 1px solid #e7e5e4; }
+		article table tr:nth-child(even) { background: #fafaf9; }
+		article table tr:nth-child(odd) { background: #fff; }
+		article table tr:hover { background: #fef9c3; transition: background 0.15s; }
+		article table tr:last-child td { font-weight: 700; border-left: 3px solid #d97706; }
+		@media (max-width: 640px) { article .prose { overflow-x: auto; } article table { min-width: 400px; } }
+		/* Pull quote / blockquote styling */
+		article blockquote { font-style: italic; font-size: 1.2rem; line-height: 1.7; border-left: 4px solid #d97706; padding: 1rem 1.5rem; margin: 2rem 0; background: rgba(217,119,6,0.05); border-radius: 0 8px 8px 0; color: #44403c; }
+		</style>
+
 		<!-- Nav -->
 		<nav class="sticky top-0 z-50 bg-stone-50/80 backdrop-blur-xl border-b border-stone-200/60">
 			<div class="max-w-6xl mx-auto px-6 lg:px-8 py-4 flex items-center justify-between">
